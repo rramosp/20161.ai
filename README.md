@@ -14,7 +14,7 @@ Realiza cuatro lecciones de un curso que elijas en alguna plataforma MOOC, como 
 ### Fechas
 **30/May** - MOOC: Un PDF con el URL del MOOC elegidos y una descripción breve del curso y de las cuatro lecciones a realizar<br/>
 **25/Jun** - Problemsets 1 y 2<br/>
-**25/Ago** - Problemsets 3, 4 y 5<br/>
+**25/Ago** - Problemsets 3 y 4<br/>
 **30/Ago** - MOOC: Un PDF con evidencia de compleción (pantallazos, código, documentos, etc.)
 
 
