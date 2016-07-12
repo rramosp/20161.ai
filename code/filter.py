@@ -86,6 +86,31 @@ def plot_kalman_gh(pos, mpos, init_pos, init_pos_std, init_vel, init_vel_std, g,
     plot_moves(pos, mpos, filter_positions, g, h)
     plt.ylim(-np.max(mpos), np.max(mpos))
 
+class ConstantAccelerationRobot(object):
+
+    def __init__ (self, init_pos=0., init_vel=0., accel=0., mnoise=0.1):
+        self.pos   = init_pos
+        self.vel   = init_vel
+        self.accel = accel
+        self.mnoise = mnoise
+        self.pos_history = [self.pos]
+        self.vel_history = [self.vel]
+        self.m_history = [self.measure_position()]
+
+    def measure_position(self):
+        return self.pos + np.random.normal(0, self.mnoise) if self.mnoise!=0 else self.pos
+
+    def move(self):
+        self.vel += self.accel
+        self.pos += self.vel
+        self.pos_history.append(self.pos)
+        self.vel_history.append(self.vel)
+        self.m_history.append(self.measure_position())
+
+    def move_n_time_steps(self, n):
+        for t in range(n):
+            self.move()
+
 class ConstantVelocityRobot(object):
     def __init__(self, init_pos=0., vel=1., mnoise=0.):
         self.pos = init_pos
